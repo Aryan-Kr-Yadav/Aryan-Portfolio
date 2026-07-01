@@ -1,0 +1,78 @@
+.skills-panel {
+  position: sticky; top: 100px; align-self: start;
+  border: var(--rule); background: var(--white);
+  max-height: calc(100vh - 120px); overflow-y: auto;
+}
+.skills-panel::-webkit-scrollbar { width: 3px; }
+.skills-panel::-webkit-scrollbar-thumb { background: var(--divider); }
+
+.skills-panel__masthead {
+  padding: 20px 22px 14px; border-bottom: 3px double var(--ink);
+  text-align: center;
+}
+.skills-panel__heading {
+  font-size: 1.5rem; text-transform: uppercase; letter-spacing: 0.1em;
+}
+.skills-panel__sub {
+  font-size: 0.6rem; color: var(--text-secondary); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-top: 3px;
+}
+
+.skills-panel__stats {
+  display: flex; flex-direction: column; gap: 0;
+  border-bottom: var(--rule-soft); padding: 0 22px;
+}
+.skills-panel__stats li {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--text-secondary);
+  padding: 8px 0; border-bottom: var(--rule-soft);
+}
+.skills-panel__stats li:last-child { border-bottom: none; }
+.skills-panel__stat-val {
+  font-family: var(--font-display); font-size: 1.1rem; color: var(--ink); font-weight: 700;
+}
+
+/* Each skill category = a classified ad */
+.skills-classified {
+  padding: 16px 22px;
+  border: 1px solid var(--divider);
+  margin: 12px;
+  background: var(--paper);
+  position: relative;
+}
+.skills-classified::before {
+  content: '';
+  position: absolute; inset: 3px;
+  border: 1px solid var(--divider);
+  pointer-events: none;
+}
+.skills-classified__header {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+}
+.skills-classified__box {
+  font-size: 0.52rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; background: var(--ink); color: var(--paper);
+  padding: 2px 6px; flex-shrink: 0;
+}
+.skills-classified__header h4 {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent-brown);
+}
+.skills-classified__items { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+.skills-classified__tag {
+  font-size: 0.74rem; padding: 3px 9px; border: var(--rule-soft); color: var(--ink);
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+.skills-classified__tag:hover { border-color: var(--accent-rust); background: var(--paper-warm); }
+.skills-classified__footer {
+  font-size: 0.6rem; font-style: italic; color: var(--text-secondary);
+  text-align: center; margin-top: 6px;
+}
+
+.skills-panel__pull-quote {
+  font-family: var(--font-display); font-style: italic; font-size: 0.9rem;
+  line-height: 1.5; color: var(--text-secondary);
+  padding: 16px 22px 20px; border-top: var(--rule-soft); text-align: center;
+}
+@media (max-width: 900px) { .skills-panel { position: static; max-height: none; } }

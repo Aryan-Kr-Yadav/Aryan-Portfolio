@@ -1,0 +1,96 @@
+.contact__grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; }
+.contact__heading {
+  font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 600; text-transform: uppercase; line-height: 1.08; margin-bottom: 28px;
+}
+.contact__info { display: flex; flex-direction: column; gap: 12px; }
+.contact__info li {
+  display: flex; align-items: center; gap: 11px;
+  font-size: 0.87rem; color: var(--text-secondary);
+  padding-bottom: 11px; border-bottom: var(--rule-soft);
+}
+.contact__info li svg { color: var(--accent-brown); flex-shrink: 0; }
+.contact__info a { transition: color var(--transition-fast); }
+.contact__info a:hover { color: var(--accent-rust); }
+
+/* ── Letter ── */
+.letter { position: relative; }
+.letter--sent .letter__paper { opacity: 0.3; pointer-events: none; }
+
+.letter__paper {
+  background: var(--white);
+  border: var(--rule-soft);
+  padding: 28px;
+  position: relative;
+  /* Faint horizontal ruled lines */
+  background-image: repeating-linear-gradient(
+    to bottom, transparent, transparent 31px,
+    rgba(216,208,196,0.5) 31px, rgba(216,208,196,0.5) 32px
+  );
+  background-size: 100% 32px;
+  background-attachment: local;
+  transition: opacity var(--transition-med);
+}
+
+.letter__top-rule    { height: 2px; background: var(--ink); margin-bottom: 18px; }
+.letter__bottom-rule { height: 1px; background: var(--divider); margin-top: 18px; }
+
+.letter__salutation  { font-family: var(--font-display); font-size: 1.25rem; font-style: italic; margin-bottom: 20px; color: var(--ink); }
+.letter__label       { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-brown); display: block; margin-bottom: 4px; }
+
+.letter__form   { display: flex; flex-direction: column; gap: 16px; }
+.letter__field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.letter__field--full { grid-column: 1 / -1; }
+
+.letter__input, .letter__textarea {
+  width: 100%; border: none; border-bottom: 1px solid var(--divider);
+  background: transparent; padding: 7px 0;
+  font-family: var(--font-body); font-size: 0.92rem; color: var(--ink);
+  resize: vertical; transition: border-color var(--transition-fast);
+}
+.letter__input:focus, .letter__textarea:focus {
+  outline: none; border-bottom-color: var(--accent-rust);
+}
+.letter__input::placeholder, .letter__textarea::placeholder { color: var(--divider); }
+
+.letter__sign      { font-family: var(--font-display); font-size: 1rem; font-style: italic; margin-bottom: 4px; }
+.letter__sign-line { height: 1px; background: var(--ink); width: 120px; margin-bottom: 16px; }
+
+.letter__send {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--ink); color: var(--paper); padding: 12px 24px;
+  font-size: 0.76rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+.letter__send:hover:not(:disabled) { background: var(--accent-rust); transform: translateY(-2px); }
+.letter__send:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Sent state overlay */
+.letter__sent-overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+  background: rgba(245,240,230,0.95);
+  animation: fadeUp 0.4s var(--ease);
+}
+.letter__sent-msg { font-family: var(--font-display); font-size: 1.2rem; font-style: italic; color: var(--ink); }
+
+/* Envelope animation */
+.envelope { position: relative; width: 80px; height: 56px; }
+.envelope__body { width: 80px; height: 56px; background: var(--paper-warm); border: 1px solid var(--divider); border-radius: 2px; }
+.envelope__flap {
+  position: absolute; top: 0; left: 0; right: 0;
+  border-left: 40px solid transparent; border-right: 40px solid transparent;
+  border-top: 28px solid var(--accent-brown); opacity: 0.5;
+  animation: flapClose 0.5s var(--ease) 0.2s both;
+}
+.envelope__stamp {
+  position: absolute; top: 6px; right: 6px; font-size: 1.2rem;
+  animation: stampIn 0.5s var(--ease) 0.6s both;
+}
+@keyframes flapClose { from { transform: rotateX(-90deg); } to { transform: rotateX(0); } }
+
+.letter__error { font-size: 0.8rem; color: var(--accent-rust); margin-top: 12px; }
+.letter__error a { text-decoration: underline; }
+
+@media (max-width: 900px) { .contact__grid { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 480px) { .letter__field-row { grid-template-columns: 1fr; } }

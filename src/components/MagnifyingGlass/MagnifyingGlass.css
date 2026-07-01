@@ -1,0 +1,37 @@
+.magnify {
+  position: fixed;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: var(--z-magnify);
+  cursor: none;
+  overflow: hidden;
+  /* The background-image trick renders a magnified viewport snapshot */
+  background-repeat: no-repeat;
+  /* Frosted sepia filter for vintage look */
+  filter: sepia(0.25) contrast(1.1) brightness(1.04);
+  box-shadow: 0 8px 32px rgba(27,27,27,0.35), inset 0 0 20px rgba(255,255,255,0.12);
+}
+
+.magnify__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.magnify__sheen {
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  width: 30%;
+  height: 20%;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.25) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: rotate(-30deg);
+  pointer-events: none;
+  z-index: 3;
+}

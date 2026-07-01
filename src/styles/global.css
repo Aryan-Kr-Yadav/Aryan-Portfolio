@@ -1,0 +1,204 @@
+@import './variables.css';
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  /* Subtle paper grain texture via SVG data-URI */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
+img { max-width: 100%; display: block; }
+ul, ol { list-style: none; }
+
+/* ============================================
+   SHARED LAYOUT
+   ============================================ */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--pad-desktop);
+}
+
+.section {
+  padding: 80px 0;
+  border-bottom: var(--rule-soft);
+  position: relative;
+}
+
+/* Edition stamp in top-right of each section */
+.section::before {
+  content: attr(data-edition);
+  position: absolute;
+  top: 20px;
+  right: var(--pad-desktop);
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--divider);
+  pointer-events: none;
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-brown);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--accent-brown);
+  display: inline-block;
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin-bottom: 36px;
+}
+
+/* ============================================
+   PAPER MICRO-TEXTURE OVERLAYS
+   ============================================ */
+/* Coffee stain (decorative, absolutely positioned in sections) */
+.coffee-stain {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(139,90,43,0.07) 0%, rgba(139,90,43,0.04) 40%, transparent 70%);
+  pointer-events: none;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+  border: 1px solid rgba(139,90,43,0.06);
+}
+.coffee-stain:hover { opacity: 0.5; }
+
+/* Ink smudge */
+.ink-smudge {
+  position: absolute;
+  width: 120px;
+  height: 6px;
+  background: linear-gradient(to right, transparent, rgba(27,27,27,0.04), transparent);
+  transform: rotate(-1.5deg);
+  pointer-events: none;
+}
+
+/* Torn paper separator */
+.torn-separator {
+  width: 100%;
+  height: 24px;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+}
+.torn-separator svg { display: block; width: 100%; height: 100%; }
+
+/* ============================================
+   PRINTING PRESS EFFECT
+   ============================================ */
+.press-print {
+  display: inline-block;
+  overflow: hidden;
+}
+.press-print__char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(4px) scale(0.95);
+  transition: opacity 0.06s ease, transform 0.08s ease;
+  /* Slight jitter for printing imperfection */
+}
+.press-print__char.printed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+/* random micro-offset classes applied via JS */
+.print-jitter-0 { transform-origin: center; margin-left: -0.3px; }
+.print-jitter-1 { transform-origin: center; margin-top: 0.4px; }
+.print-jitter-2 { transform-origin: center; margin-left: 0.2px; letter-spacing: 0.01em; }
+
+/* ============================================
+   SCROLL REVEAL
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes inkDrop {
+  0% { opacity: 0; filter: blur(6px); transform: scale(0.93); }
+  60% { opacity: 1; filter: blur(0); transform: scale(1.01); }
+  100% { opacity: 1; filter: blur(0); transform: scale(1); }
+}
+
+@keyframes stampIn {
+  0% { opacity: 0; transform: scale(1.6) rotate(-8deg); filter: blur(3px); }
+  70% { opacity: 1; transform: scale(0.95) rotate(-3deg); filter: blur(0); }
+  100% { opacity: 1; transform: scale(1) rotate(-3deg); }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .container { padding: 0 var(--pad-tablet); }
+  .section { padding: 60px 0; }
+  .section::before { right: var(--pad-tablet); }
+}
+@media (max-width: 640px) {
+  .container { padding: 0 var(--pad-mobile); }
+  .section { padding: 44px 0; }
+  .section::before { right: var(--pad-mobile); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

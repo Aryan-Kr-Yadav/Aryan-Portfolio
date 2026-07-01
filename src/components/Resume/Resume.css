@@ -1,0 +1,152 @@
+/* ── Outer card — same border/hover as before, just cleaner internals ── */
+.archive {
+  border: var(--rule);
+  background: var(--white);
+  padding: 32px 28px 28px;
+  height: fit-content;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.archive:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(27,27,27,0.09);
+}
+
+/* ── Masthead block ── */
+.archive__masthead {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.archive__rule       { height: 1px; background: var(--ink); margin: 8px 0; }
+.archive__rule--top  { margin-top: 0; }
+.archive__rule--thick{ height: 3px; margin: 6px 0; }
+
+.archive__eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding: 6px 0 4px;
+}
+
+.archive__title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  padding: 10px 0 8px;
+}
+
+.archive__edition {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-brown);
+  padding: 6px 0 4px;
+}
+
+/* Issue · Published row */
+.archive__meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 0 6px;
+}
+.archive__meta-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.archive__meta-label {
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.archive__meta-val {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+}
+.archive__meta-sep {
+  color: var(--divider);
+  font-size: 1.2rem;
+  line-height: 1;
+  margin-top: 10px;
+}
+
+/* ── Description ── */
+.archive__desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 0 8px;
+}
+
+/* ── Buttons — identical style hooks to before, just re-scoped ── */
+.archive__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.archive__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 12px;
+  font-size: 0.71rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
+}
+.archive__btn--outline {
+  border: 1px solid var(--ink);
+  color: var(--ink);
+}
+.archive__btn--outline:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.archive__btn--solid {
+  background: var(--accent-brown);
+  color: var(--white);
+}
+.archive__btn--solid:hover {
+  background: var(--accent-rust);
+  transform: translateY(-2px);
+}
+
+/* ── Decorative volume stamp — bottom-right corner ── */
+.archive__stamp {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  border: 1.5px solid var(--divider);
+  color: var(--divider);
+  font-size: 0.46rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.4;
+  padding: 5px 8px;
+  transform: rotate(8deg);
+  pointer-events: none;
+  user-select: none;
+}

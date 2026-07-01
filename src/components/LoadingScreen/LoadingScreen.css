@@ -1,0 +1,95 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   LOADING SCREEN — premium, minimalist, editorial.
+   Uses the site's existing paper theme (not a dark backdrop) so the reveal
+   underneath feels seamless rather than a jarring color swap.
+───────────────────────────────────────────────────────────────────────────── */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-intro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  /* Same subtle paper grain used across the site, kept consistent */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  transition: opacity 0.45s var(--ease);
+}
+
+.loading-screen--exit {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-screen__inner {
+  text-align: center;
+  padding: 0 24px;
+}
+
+.loading-screen__name {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 8vw, 4.6rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: var(--ink);
+  animation: ls-fadeIn 0.7s var(--ease) both;
+}
+
+.loading-screen__label {
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  animation: ls-fadeIn 0.7s var(--ease) 0.15s both;
+}
+
+/* ── Loading indicator: thin editorial progress line, no spinner ── */
+.loading-screen__bar {
+  position: relative;
+  width: 160px;
+  height: 1px;
+  margin: 30px auto 0;
+  background: var(--divider);
+  overflow: hidden;
+  animation: ls-fadeIn 0.7s var(--ease) 0.25s both;
+}
+
+.loading-screen__bar-fill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  background: var(--accent-brown);
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: ls-progress 2.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes ls-fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ls-progress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@media (max-width: 560px) {
+  .loading-screen__bar { width: 120px; }
+}
+
+/* Respect reduced-motion at the CSS level too */
+@media (prefers-reduced-motion: reduce) {
+  .loading-screen__name,
+  .loading-screen__label,
+  .loading-screen__bar,
+  .loading-screen__bar-fill {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

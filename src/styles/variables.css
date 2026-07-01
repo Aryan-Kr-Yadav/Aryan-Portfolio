@@ -1,0 +1,47 @@
+/* ============================================
+   DESIGN TOKENS — Luxury Vintage Editorial V2
+   ============================================ */
+:root {
+  /* Color Palette */
+  --paper: #F5F0E6;
+  --paper-warm: #EFE8D8;
+  --paper-aged: #E8DFC8;
+  --ink: #1B1B1B;
+  --ink-faded: rgba(27,27,27,0.55);
+  --accent-brown: #8A6A4A;
+  --accent-rust: #A8462F;
+  --accent-red: #C0392B;
+  --text-secondary: #6F6B63;
+  --divider: #D8D0C4;
+  --white: #FFFFFF;
+  --stain: rgba(139, 90, 43, 0.08);
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+
+  /* Layout */
+  --max-width: 1440px;
+  --pad-desktop: 40px;
+  --pad-tablet: 28px;
+  --pad-mobile: 18px;
+
+  /* Borders */
+  --rule: 1px solid var(--ink);
+  --rule-soft: 1px solid var(--divider);
+  --rule-double: 3px double var(--ink);
+
+  /* Motion */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-fast: 0.2s var(--ease);
+  --transition-med: 0.4s var(--ease);
+  --transition-slow: 0.7s var(--ease);
+
+  /* Z-index layers */
+  --z-ticker: 200;
+  --z-nav: 100;
+  --z-intro: 1000;
+  --z-lightbox: 900;
+  --z-magnify: 800;
+}

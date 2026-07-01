@@ -1,0 +1,69 @@
+.nav {
+  position: sticky; top: 0; z-index: var(--z-nav);
+  background: var(--paper);
+  border-bottom: var(--rule);
+  transition: box-shadow var(--transition-med);
+}
+.nav--shadow { box-shadow: 0 4px 20px rgba(27,27,27,0.07); }
+
+.nav__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; gap: 20px;
+}
+
+.nav__brand {
+  font-family: var(--font-display);
+  font-size: 1.25rem; font-weight: 700;
+  letter-spacing: 0.03em; flex-shrink: 0;
+}
+.nav__dot { color: var(--accent-rust); }
+
+.nav__links {
+  display: flex; align-items: center; gap: 24px; flex: 1; justify-content: center;
+}
+
+.nav__link {
+  position: relative;
+  font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--text-secondary); padding: 2px 0;
+  transition: color var(--transition-fast); white-space: nowrap;
+}
+.nav__link::after {
+  content: ''; position: absolute; left: 0; bottom: -2px;
+  width: 0; height: 1px; background: var(--ink);
+  transition: width var(--transition-med);
+}
+.nav__link:hover { color: var(--ink); }
+.nav__link:hover::after { width: 100%; }
+.nav__link--active { color: var(--ink); font-weight: 600; }
+.nav__link--active::after { width: 100%; background: var(--accent-rust); }
+
+.nav__socials {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 0.95rem; color: var(--ink); flex-shrink: 0;
+}
+.nav__socials a { transition: color var(--transition-fast), transform var(--transition-fast); }
+.nav__socials a:hover { color: var(--accent-rust); transform: translateY(-2px); }
+
+.nav__toggle { display: none; color: var(--ink); }
+
+@media (max-width: 1100px) {
+  .nav__links { gap: 16px; }
+  .nav__link  { font-size: 0.68rem; }
+}
+@media (max-width: 860px) {
+  .nav__toggle { display: block; }
+  .nav__links {
+    position: absolute; top: 64px; left: 0; right: 0;
+    background: var(--paper); border-bottom: var(--rule);
+    flex-direction: column; align-items: flex-start;
+    gap: 0; max-height: 0; overflow: hidden;
+    transition: max-height var(--transition-med);
+  }
+  .nav__links--open { max-height: 520px; }
+  .nav__links li    { width: 100%; }
+  .nav__link { display: block; width: 100%; padding: 13px var(--pad-mobile); border-bottom: var(--rule-soft); }
+  .nav__link::after { display: none; }
+  .nav__socials     { display: none; }
+}
