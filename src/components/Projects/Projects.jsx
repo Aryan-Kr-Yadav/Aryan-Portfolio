@@ -45,7 +45,7 @@ export default function Projects() {
             <article key={proj.title} className="proj-card">
               {/* Newspaper-style article preview */}
               <div className="proj-card__image-wrap">
-                <div className="proj-card__image">
+                {/* <div className="proj-card__image">
                   <svg viewBox="0 0 320 180" className="proj-card__svg">
                     <rect width="320" height="180" fill="#1a1a1a"/>
                     <rect x="0" y="0" width="320" height="24" fill="#111"/>
@@ -60,7 +60,12 @@ export default function Projects() {
                     <rect x="20" y="120" width="80" height="26" rx="2" fill="var(--accent-rust)" opacity="0.4"/>
                     <rect x="108" y="120" width="80" height="26" rx="2" fill="none" stroke="#555" strokeWidth="1"/>
                   </svg>
-                </div>
+                </div> */}
+                <img
+                  className="proj-card__image"
+                  src={proj.image}
+                  alt={proj.title}
+                />
               </div>
 
               <div className="proj-card__body">

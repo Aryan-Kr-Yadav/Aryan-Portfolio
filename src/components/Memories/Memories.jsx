@@ -57,10 +57,13 @@ export default function Memories() {
                   <span className="mem-photo__tape mem-photo__tape--tl"/>
                   <span className="mem-photo__tape mem-photo__tape--tr"/>
 
-                  <div
-                    className="mem-photo__image"
-                    style={{ background: TONES[i % TONES.length] }}
-                  />
+                  <div className="mem-photo__image">
+                   <img
+                   src={mem.image}
+                   alt={mem.title}
+                   loading="lazy"
+                   />
+                  </div>
                   <div className="mem-photo__overlay"/>
                   <p className="mem-photo__caption">{mem.title}</p>
                 </div>
@@ -82,7 +85,12 @@ export default function Memories() {
 
           <div className="mem-lightbox__content" onClick={e => e.stopPropagation()}>
             <div className="mem-lightbox__frame">
-              <div className="mem-lightbox__image" style={{ background: TONES[active % TONES.length] }}/>
+              <div className="mem-lightbox__image">
+              <img
+              src={memories[active].image}
+              alt={memories[active].title}
+              />
+              </div>
             </div>
             <p className="mem-lightbox__caption">{memories[active].title}</p>
             <p className="mem-lightbox__cat">{memories[active].category}</p>

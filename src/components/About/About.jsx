@@ -18,16 +18,10 @@ export default function About() {
       <h2 className="section-heading">About Me</h2>
 
       <p className="about__body">
-        I am a Computer Science student at ABES Engineering College, Ghaziabad — passionate about
-        building impactful products that solve real-world problems. My journey spans full-stack
-        development, computer vision AI, and open source collaboration. I believe the best code
-        is invisible: it just works, elegantly and efficiently.
+        I am a Computer Science student at ABES Engineering College, Ghaziabad, passionate about building meaningful digital experiences through technology. Currently, I’m focused on mastering Full Stack Development, strengthening my problem-solving skills with DSA in C++, and exploring UI/UX design to create intuitive and user-centric applications.
       </p>
       <p className="about__body" style={{ marginTop: '14px' }}>
-        Whether it's training a machine learning model to detect student focus, crafting
-        responsive UIs, or optimizing an algorithm on LeetCode at midnight — I bring the same
-        curiosity and discipline to every challenge. Currently exploring cloud computing and
-        always looking for the next problem worth solving.
+        I enjoy turning ideas into real-world projects while continuously learning and experimenting with new technologies. Alongside development, I have a creative side through graphic design and video editing, and I’m excited to explore Machine Learning and Cloud Computing as I grow into a well-rounded software engineer.
       </p>
 
       <ul className="about__traits">

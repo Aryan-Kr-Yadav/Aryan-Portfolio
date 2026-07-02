@@ -3,8 +3,20 @@
 // All editable content lives here.
 // ============================================
 
+import focuslens from '../assets/images/focuslens.png';
+import krishimitra from '../assets/images/krishimitra.png';
+import hostel from '../assets/images/hostel.png';
+import GDGEvent from '../assets/images/GDGEvent.png';
+import Trishul from '../assets/images/Trishul.png';
+import hackathon from '../assets/images/hackathon.png';
+import friendgroup from '../assets/images/friendgroup.png';
+import gdg from '../assets/images/gdg.png';
+import marathon from '../assets/images/marathon.png';
+import college from '../assets/images/college.png';
+import dp from '../assets/images/dp.png';
+
 export const profile = {
-  name: 'Aryan Yadav',
+  name: 'Aryan Kumar Yadav',
   role: 'Software Developer | Full Stack | Open Source',
   location: 'India',
   email: 'aryanyadav30705@gmail.com',
@@ -38,38 +50,39 @@ export const navLinks = [
 export const experience = [
   {
     title: 'Open Source Contributor',
-    period: '2025 — Present',
-    description: 'Contributing to open source projects, fixing issues, improving documentation, and collaborating with amazing developers from around the world.',
+    period: '2026 — Present',
+    description: 'Contributing bug fixes, documentation improvements, and feature enhancements while collaborating with developers across the global open-source community.',
   },
   {
     title: 'GDG ABESEC Member',
-    period: '2024 — Present',
+    period: '2025 — Present',
     description: 'Organizing coding events, workshops, hackathons, and tech talks for hundreds of students as part of Google Developer Group ABESEC.',
   },
   {
     title: 'Trishul ABESEC Member',
-    period: '2024 — Present',
-    description: 'Active member of the college defense society, building leadership, discipline, and teamwork through structured programs.',
+    period: '2025 — Present',
+    description: 'Active member of the college defence aspirant society, building leadership, discipline, and teamwork through structured programs.',
   },
 ];
 
 export const skillsStats = [
-  { label: 'Languages',  value: '05' },
-  { label: 'Frameworks', value: '04' },
-  { label: 'Databases',  value: '02' },
-  { label: 'Tools',      value: '08' },
+  { label: 'Languages',  value: '06' },
+  { label: 'Frameworks', value: '03' },
+  { label: 'Databases',  value: '01' },
+  { label: 'Tools',      value: '07' },
 ];
 
 export const skillCategories = [
-  { category: 'Languages',  items: ['C++', 'Python', 'JavaScript', 'SQL', 'HTML/CSS'] },
-  { category: 'Frameworks', items: ['React', 'Node.js', 'Express', 'Flask'] },
-  { category: 'Databases',  items: ['MongoDB', 'MySQL'] },
-  { category: 'Tools',      items: ['Git', 'GitHub', 'VS Code', 'Postman', 'Linux', 'Docker', 'OpenCV', 'MediaPipe'] },
+  { category: 'Languages',  items: ['C++', 'C', 'Python', 'Java', 'JavaScript', 'HTML/CSS'] },
+  { category: 'Frameworks', items: ['React', 'Tailwind CSS', 'Bootstrap'] },
+  { category: 'Databases',  items: ['MySQL'] },
+  { category: 'Tools',      items: ['Git', 'GitHub', 'VS Code', 'Figma', 'Canva', 'Capcut', 'Netlify'] },
 ];
 
 export const projects = [
   {
     title: 'FocusLens',
+    image : focuslens,
     tagline: 'AI Eye-Tracking Monitor',
     description: 'Real-time AI attention monitoring system using Python, OpenCV and MediaPipe — tracks blinks, head position and generates a focus score.',
     stack: ['Python', 'OpenCV', 'MediaPipe', 'NumPy'],
@@ -78,6 +91,7 @@ export const projects = [
   },
   {
     title: 'KrishiMitra AI',
+    image : krishimitra ,
     tagline: 'Agricultural AI Assistant',
     description: 'AI-powered agricultural assistant that identifies crop diseases from photos and recommends treatments in local languages for farmers.',
     stack: ['Python', 'AI API', 'Flask', 'HTML/CSS'],
@@ -86,6 +100,7 @@ export const projects = [
   },
   {
     title: 'ABES Boys Hostel',
+    image : hostel ,
     tagline: 'Campus Management Portal',
     description: 'Official website for ABES Engineering College Boys Hostel — facilities, rooms, amenities and contact management in pure vanilla web tech.',
     stack: ['HTML', 'CSS', 'JavaScript'],
@@ -95,14 +110,14 @@ export const projects = [
 ];
 
 export const memories = [
-  { title: 'College Fest',          category: 'Events'     },
-  { title: 'Hackathon 2.0',         category: 'Events'     },
-  { title: 'Late Night Debugging',  category: 'Grind'      },
-  { title: 'Team Outing',           category: 'Friends'    },
-  { title: 'Tech Talk',             category: 'Events'     },
-  { title: 'Achievement Unlocked',  category: 'Milestones' },
-  { title: 'Friends Forever',       category: 'Friends'    },
-  { title: 'Random Clicks',         category: 'Candid'     },
+  { title: 'GDG MIND THE GAP', image : GDGEvent,  category: 'Events'     },
+  { title: 'Trishul Event', image : Trishul , category: 'Events'     },
+  { title: 'Hackathon', image : hackathon  , category: 'Grind'      },
+  { title: 'Friends Forever', image : friendgroup  ,category: 'Friends'    },
+  { title: 'Tech Talk', image : gdg  , category: 'Events'     },
+  { title: 'Achievement Unlocked', image : marathon ,  category: 'Milestones' },
+  { title: 'Friends Forever', image : college ,  category: 'Friends'    },
+  { title: 'Random Clicks', image : dp ,  category: 'Candid'     },
 ];
 
 // Fallback LeetCode breakdown (used when API is unavailable)

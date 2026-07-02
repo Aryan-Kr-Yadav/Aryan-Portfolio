@@ -10,7 +10,34 @@
 .proj-card:hover { transform: translateY(-5px); box-shadow: 0 16px 36px rgba(27,27,27,0.09); }
 
 .proj-card__image-wrap { overflow: hidden; }
-.proj-card__image { aspect-ratio: 16/9; overflow: hidden; }
+.proj-card__image {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+  object-position: top center;
+
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+
+  box-shadow:
+    0 2px 6px rgba(0,0,0,.08),
+    0 12px 28px rgba(0,0,0,.12);
+
+  box-sizing: border-box;
+
+  transition: transform .35s ease,
+              box-shadow .35s ease,
+              border-color .35s ease;
+}
+
+.proj-card:hover .proj-card__image {
+  transform: scale(1.03);
+  border-color: var(--accent-brown);
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.14),
+    0 18px 40px rgba(0,0,0,.18);
+}
 .proj-card__svg   { width: 100%; height: 100%; display: block; transition: transform 0.5s var(--ease); }
 .proj-card:hover .proj-card__svg { transform: scale(1.05); }
 
