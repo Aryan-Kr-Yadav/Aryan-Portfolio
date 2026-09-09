@@ -8,7 +8,7 @@ const experienceDetails = [
   {
     headline: 'Developer Contributes Code to Open Source Projects Worldwide',
     byline: 'By Aryan Yadav · Open Source Desk · 2026–Present',
-    body: `In a milestone that reflects a growing passion for software development, Aryan Yadav, a second-year Computer Science student at ABES Engineering College, has begun contributing to open-source projects on GitHub. By submitting pull requests, fixing bugs, improving documentation, and collaborating with maintainers worldwide, he continues to strengthen his skills while giving back to the developer community. For Aryan, every contribution is another step toward becoming a better engineer and lifelong learner.`,
+    body: `Actively exploring open-source development, with a recent selection as a contributor for GSSoC 2026. Through pull requests, bug fixes, feature improvements, and documentation updates, I’ve gained hands-on experience working with real-world codebases and collaborating with the developer community. Each contribution has helped me strengthen my technical skills, understand collaborative development better, and continue growing as a software engineer.`,
   },
   {
     headline: 'GDG ABESEC Member Contributes to Campus Tech Community',

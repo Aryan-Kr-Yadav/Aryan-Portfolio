@@ -2,11 +2,11 @@ import { FaGraduationCap, FaMapMarkerAlt, FaEnvelope, FaDownload } from 'react-i
 import { profile } from '../../data/portfolioData';
 import useReveal from '../../hooks/useReveal';
 import './Profile.css';
-import profileImg from '../../assets/images/profile.png';
+import profileImg from '../../assets/images/profile.jpeg';
 
 function PortraitPlaceholder() {
   return (
-    <svg viewBox="0 0 300 360" xmlns="src/assets/images/profile.png" style={{width:'100%',height:'100%',display:'block'}}>
+    <svg viewBox="0 0 300 360" xmlns="src/assets/images/profile.jpeg" style={{width:'100%',height:'100%',display:'block'}}>
       <rect width="300" height="360" fill="#E8DFC8"/>
       <ellipse cx="150" cy="290" rx="95" ry="75" fill="#C9BCA0"/>
       <circle cx="150" cy="145" r="72" fill="#C9BCA0"/>
