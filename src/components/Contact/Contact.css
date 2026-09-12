@@ -54,7 +54,19 @@
 .letter__input::placeholder, .letter__textarea::placeholder { color: var(--divider); }
 
 .letter__sign      { font-family: var(--font-display); font-size: 1rem; font-style: italic; margin-bottom: 4px; }
-.letter__sign-line { height: 1px; background: var(--ink); width: 120px; margin-bottom: 16px; }
+.letter__signature { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; margin-bottom: 16px; }
+.letter__signature-name, .letter__signature-designation {
+  border: none; background: transparent; width: min(100%, 240px); padding: 4px 0;
+  color: var(--ink); transition: border-color var(--transition-fast);
+}
+.letter__signature-name {
+  border-bottom: 1px solid var(--ink); font-family: var(--font-display); font-size: 1rem; font-style: italic;
+}
+.letter__signature-designation {
+  font-family: var(--font-body); font-size: 0.72rem; color: var(--text-secondary);
+}
+.letter__signature-name:focus, .letter__signature-designation:focus { outline: none; border-bottom-color: var(--accent-rust); }
+.letter__signature-name::placeholder, .letter__signature-designation::placeholder { color: var(--divider); }
 
 .letter__send {
   display: inline-flex; align-items: center; gap: 8px;

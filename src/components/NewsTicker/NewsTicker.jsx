@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import './NewsTicker.css';
 
 const TICKER_ITEMS = [

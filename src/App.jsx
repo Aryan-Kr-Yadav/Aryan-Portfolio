@@ -69,8 +69,8 @@ function LogoFoldFlash({ show }) {
 
 // // ── Loyal Reader stamp (shows after 3+ visits across sessions) ────────────
 function LoyalReaderStamp() {
-  const visits = parseInt(localStorage.getItem('ary_visits') || '0') + 1;
-  useEffect(() => { localStorage.setItem('ary_visits', String(visits)); }, []);
+  const [visits] = useState(() => parseInt(localStorage.getItem('ary_visits') || '0') + 1);
+  useEffect(() => { localStorage.setItem('ary_visits', String(visits)); }, [visits]);
   if (visits < 3) return null;
   return (
     <div>

@@ -1,11 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { memories } from '../../data/portfolioData';
 import useReveal from '../../hooks/useReveal';
 import './Memories.css';
-
-// Muted vintage photo tones
-const TONES = ['#C9BCA0','#A8B5A0','#B5A0A8','#A0A8B5','#B8A87E','#9DAFA0','#AFA0AC','#A0A0B0'];
 
 // Each photo gets a slight random rotation (seeded, not random each render)
 const ROTATIONS = [-2.1, 1.4, -0.8, 2.6, -1.7, 0.9, -2.4, 1.1];

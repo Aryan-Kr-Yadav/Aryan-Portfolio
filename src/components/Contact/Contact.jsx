@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { FaEnvelope, FaMapMarkerAlt, FaGithub, FaLinkedinIn, FaInstagram, FaPaperPlane } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
@@ -13,7 +13,7 @@ const HAS_EMAILJS = Boolean(EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS
 
 export default function Contact() {
   const [ref, isVisible] = useReveal();
-  const [form, setForm]  = useState({ name: '', email: '', message: '' });
+  const [form, setForm]  = useState({ name: '', email: '', message: '', signatureName: '', designation: '' });
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
 
   const handleChange = e => setForm(p => ({ ...p, [e.target.name]: e.target.value }));
@@ -25,11 +25,17 @@ export default function Contact() {
     try {
       await emailjs.send(
         EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID,
-        { from_name: form.name, from_email: form.email, message: form.message },
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+          signature_name: form.signatureName,
+          designation: form.designation,
+        },
         { publicKey: EMAILJS_PUBLIC_KEY }
       );
       setStatus('sent');
-      setForm({ name: '', email: '', message: '' });
+      setForm({ name: '', email: '', message: '', signatureName: '', designation: '' });
     } catch { setStatus('error'); }
   };
 
@@ -77,7 +83,26 @@ export default function Contact() {
                   </div>
 
                   <p className="letter__sign">Sincerely,</p>
-                  <div className="letter__sign-line"/>
+                  <div className="letter__signature">
+                    <input
+                      name="signatureName"
+                      placeholder="Your Name"
+                      value={form.signatureName}
+                      onChange={handleChange}
+                      required
+                      className="letter__signature-name"
+                      aria-label="Signature name"
+                    />
+                    <input
+                      name="designation"
+                      placeholder="Your Designation"
+                      value={form.designation}
+                      onChange={handleChange}
+                      required
+                      className="letter__signature-designation"
+                      aria-label="Designation"
+                    />
+                  </div>
 
                   <button type="submit" className="letter__send" disabled={status === 'sending'}>
                     <FaPaperPlane size={13}/>

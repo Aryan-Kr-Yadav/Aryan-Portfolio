@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
-import { FaTrophy, FaFire, FaGlobe, FaMedal, FaStar } from 'react-icons/fa';
-import { leetcodeUsername, leetcodeBreakdown } from '../../data/portfolioData';
+import { FaTrophy, FaFire, FaGlobe, FaStar } from 'react-icons/fa';
+import { leetcodeUsername } from '../../data/portfolioData';
 import useReveal from '../../hooks/useReveal';
 import './Leetcode.css';
 

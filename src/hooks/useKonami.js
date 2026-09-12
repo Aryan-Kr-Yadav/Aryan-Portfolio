@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 const KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
 
 export default function useKonami(callback) {
-  const [keys, setKeys] = useState([]);
+  const [, setKeys] = useState([]);
   useEffect(() => {
     const handler = e => {
       setKeys(prev => {

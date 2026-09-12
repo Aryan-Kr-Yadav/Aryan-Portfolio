@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import usePrintEffect from '../../hooks/usePrintEffect';
 import './Header.css';
 
@@ -24,13 +24,8 @@ export default function Header({ revealed = true }) {
   // while invisible, and appears static (already "typed") the moment the
   // site becomes visible. usePrintEffect re-triggers reactively when
   // startOnMount flips from false → true.
-  const { displayText, isDone } = usePrintEffect('ARYAN', { delay: 300, speed: 80, startOnMount: revealed });
-  const [dateStr, setDateStr] = useState('');
-
-  useEffect(() => {
-    const d = new Date();
-    setDateStr(d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).toUpperCase());
-  }, []);
+  const { displayText } = usePrintEffect('ARYAN', { delay: 300, speed: 80, startOnMount: revealed });
+  const [dateStr] = useState(() => new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).toUpperCase());
 
   return (
     <header className="hero" id="home">

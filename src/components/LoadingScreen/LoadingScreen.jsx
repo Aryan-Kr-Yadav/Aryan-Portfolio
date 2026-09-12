@@ -30,6 +30,7 @@ export default function LoadingScreen({ onComplete }) {
     typeof sessionStorage !== 'undefined' &&
     sessionStorage.getItem(STORAGE_KEY) === '1';
 
+  // This effect intentionally runs once: the loader sequence is mount-scoped.
   useEffect(() => {
     // Skip entirely if reduced-motion requested OR already seen this session
     if (prefersReduced || alreadySeen) {
@@ -44,6 +45,7 @@ export default function LoadingScreen({ onComplete }) {
     const t2 = setTimeout(() => onComplete(),      LOAD_MS + FADE_MS);
 
     return () => { clearTimeout(t1); clearTimeout(t2); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // intentionally empty — run once on mount
 
   // Don't render anything if we're skipping

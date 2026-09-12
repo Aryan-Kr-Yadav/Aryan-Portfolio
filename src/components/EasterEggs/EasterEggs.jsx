@@ -22,14 +22,12 @@ const QUOTES = [
 export default function EasterEggs() {
   const [konamiActive, setKonamiActive] = useState(false);
   const [quoteState, setQuoteState] = useState({ visible: false, text: '', x: 0, y: 0 });
-  const [loyalReader, setLoyalReader] = useState(false);
-  const [konamiSeq, setKonamiSeq] = useState([]);
+  const [, setKonamiSeq] = useState([]);
 
   // --- Loyal Reader detection ---
   useEffect(() => {
     const visits = parseInt(localStorage.getItem('np-visits') || '0', 10) + 1;
     localStorage.setItem('np-visits', String(visits));
-    if (visits >= 2) setLoyalReader(true);
   }, []);
 
   // --- Konami Code ---

@@ -32,7 +32,7 @@ const TRAIL_SPEED_PX = 9;     // px/frame-ish threshold to start leaving a trail
 const MAX_TRAIL_DOTS = 14;    // hard cap so the trail can never become excessive
 
 export default function CustomCursor() {
-  const [enabled, setEnabled] = useState(false);
+  const [enabled] = useState(() => !window.matchMedia('(hover: none), (pointer: coarse)').matches);
 
   const posRef      = useRef(null);   // outer layer: JS-driven position + tilt
   const penRef       = useRef(null);   // inner layer: hover/press CSS states
@@ -44,7 +44,6 @@ export default function CustomCursor() {
     const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
     if (isTouch) return;
 
-    setEnabled(true);
     document.body.classList.add('custom-cursor-active');
 
     const target  = { x: window.innerWidth / 2, y: window.innerHeight / 2 };

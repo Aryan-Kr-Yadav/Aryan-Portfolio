@@ -8,6 +8,7 @@ import './Github.css';
 
 const calendarTheme = {
   light: ['#E8E0CC', '#C3D8B8', '#8FB17A', '#5B8A6F', '#3E6450'],
+  dark: ['#E8E0CC', '#C3D8B8', '#8FB17A', '#5B8A6F', '#3E6450'],
 };
 
 // Fetches live GitHub profile + repos via the public REST API (no auth needed for public data).

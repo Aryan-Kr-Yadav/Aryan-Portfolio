@@ -31,7 +31,6 @@ export default function PrintHeading({ text, tag: Tag = 'h2', className = '', de
   useEffect(() => {
     if (!started) return;
 
-    let count = 0;
     const letters = text.replace(/\s/g, '\u00A0'); // preserve spaces
     const totalChars = letters.length;
 

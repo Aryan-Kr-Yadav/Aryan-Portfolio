@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaExternalLinkAlt, FaGithub, FaTimes, FaStar, FaCodeBranch } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaGithub, FaTimes } from 'react-icons/fa';
 import { projects } from '../../data/portfolioData';
 import useReveal from '../../hooks/useReveal';
 import './Projects.css';
