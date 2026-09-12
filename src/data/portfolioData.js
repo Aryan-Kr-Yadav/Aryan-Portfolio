@@ -18,7 +18,7 @@ import dp from '../assets/images/dp.png';
 export const profile = {
   name: 'Aryan Kumar Yadav',
   role: 'Software Developer | Full Stack | Open Source',
-  location: 'India',
+  location: 'Ballia ,U.P. ,India',
   email: 'aryanyadav30705@gmail.com',
   resumePath: '/resume.pdf',
 };
