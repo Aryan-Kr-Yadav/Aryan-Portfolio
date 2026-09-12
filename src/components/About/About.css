@@ -1,4 +1,23 @@
 .about__body { font-size: 1rem; line-height: 1.82; color: var(--ink); max-width: 640px; }
+
+.about__closing {
+  margin-top: 22px;
+  padding: 12px 16px;
+
+  border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
+
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.6;
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+}
+
 .about__traits {
   display: grid; grid-template-columns: repeat(2,1fr); gap: 13px 28px;
   margin: 28px 0;

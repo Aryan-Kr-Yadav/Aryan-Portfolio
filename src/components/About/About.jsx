@@ -18,11 +18,33 @@ export default function About() {
       <h2 className="section-heading">About Me</h2>
 
       <p className="about__body">
-        I am a Computer Science student at ABES Engineering College, Ghaziabad, passionate about building meaningful digital experiences through technology. Currently, I’m focused on mastering Full Stack Development, strengthening my problem-solving skills with DSA in C++, and exploring UI/UX design to create intuitive and user-centric applications.
-      </p>
-      <p className="about__body" style={{ marginTop: '14px' }}>
-        I enjoy turning ideas into real-world projects while continuously learning and experimenting with new technologies. Alongside development, I have a creative side through graphic design and video editing, and I’m excited to explore Machine Learning and Cloud Computing as I grow into a well-rounded software engineer.
-      </p>
+  I’m a Computer Science student at ABES Engineering College, Ghaziabad, who
+  enjoys the space where code, creativity, and curiosity meet. Right now, I’m
+  diving deeper into Full Stack Development, sharpening my problem-solving
+  skills with DSA in C++, and exploring Data Analytics and UI/UX to understand
+  both the information behind decisions and the experiences behind great
+  products.
+</p>
+
+<p className="about__body" style={{ marginTop: '14px' }}>
+  Most of my learning happens by building — turning ideas into real-world
+  projects, experimenting with new technologies, breaking things along the way,
+  and figuring out how to make them better. From web applications and
+  open-source contributions to working with data and experimenting with AI, I’m
+  always looking for the next interesting problem to solve.
+</p>
+
+<p className="about__body" style={{ marginTop: '14px' }}>
+  There’s a creative side to the story too. Graphic design, video editing, and
+  visual storytelling have shaped the way I think about the things I build. As
+  I move forward, I’m also exploring Machine Learning and Cloud Computing, with
+  one simple goal: becoming an engineer who can analyze, think, design, and
+  build beyond the obvious.
+</p>
+
+<p className="about__closing">
+  Still learning. Still building. Still writing the next chapter.
+</p>
 
       <ul className="about__traits">
         {traits.map(t => (
