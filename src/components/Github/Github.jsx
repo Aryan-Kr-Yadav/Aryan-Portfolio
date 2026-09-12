@@ -94,15 +94,17 @@ export default function Github() {
               {/* Calendar + Languages */}
               <div className="github__panel">
                 <div className="github__calendar-card">
-                  <GitHubCalendar
-                    username={githubUsername}
-                    theme={calendarTheme}
-                    blockSize={11}
-                    blockMargin={4}
-                    fontSize={12}
-                    throwOnError={false}
-                    errorMessage="Set your real GitHub username in portfolioData.js"
-                  />
+                  <div className="github__calendar-content">
+                    <GitHubCalendar
+                      username={githubUsername}
+                      theme={calendarTheme}
+                      blockSize={11}
+                      blockMargin={4}
+                      fontSize={12}
+                      throwOnError={false}
+                      errorMessage="Set your real GitHub username in portfolioData.js"
+                    />
+                  </div>
                 </div>
                 <div className="github__lang-card">
                   <h4>Top Languages</h4>
