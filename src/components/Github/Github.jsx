@@ -98,6 +98,7 @@ export default function Github() {
                     <GitHubCalendar
                       username={githubUsername}
                       theme={calendarTheme}
+                      colorScheme="light"
                       blockSize={11}
                       blockMargin={4}
                       fontSize={12}
