@@ -17,29 +17,30 @@ export default function About() {
       <p className="section-label">Chapter One</p>
       <h2 className="section-heading">About Me</h2>
 
-      <p className="about__body">
-  I’m a Computer Science student at ABES Engineering College, Ghaziabad, who
-  enjoys the space where code, creativity, and curiosity meet. Right now, I’m
-  diving deeper into Full Stack Development, sharpening my problem-solving
-  skills with DSA in C++, and exploring Data Analytics and UI/UX to understand
-  both the information behind decisions and the experiences behind great
-  products.
+<p className="about__body">
+  I’m a Computer Science and Engineering student at ABES Engineering College, Ghaziabad, who
+  enjoys the space where <strong>code, creativity, and curiosity</strong> meet.
+  Right now, I’m diving deeper into <strong>Full Stack Development</strong>,
+  sharpening my problem-solving skills with <strong>DSA in C++</strong>, and
+  exploring <strong>Data Analytics and UI/UX</strong> to understand both the
+  information behind decisions and the experiences behind great products.
 </p>
 
 <p className="about__body" style={{ marginTop: '14px' }}>
-  Most of my learning happens by building — turning ideas into real-world
-  projects, experimenting with new technologies, breaking things along the way,
-  and figuring out how to make them better. From web applications and
-  open-source contributions to working with data and experimenting with AI, I’m
-  always looking for the next interesting problem to solve.
+  Most of my learning happens by <strong>building</strong> — turning ideas into
+  real-world projects, experimenting with new technologies, breaking things
+  along the way, and figuring out how to make them better. From web applications
+  and <strong>open-source contributions</strong> to working with data and
+  experimenting with AI, I’m always looking for the next interesting problem
+  to solve.
 </p>
 
 <p className="about__body" style={{ marginTop: '14px' }}>
-  There’s a creative side to the story too. Graphic design, video editing, and
-  visual storytelling have shaped the way I think about the things I build. As
-  I move forward, I’m also exploring Machine Learning and Cloud Computing, with
-  one simple goal: becoming an engineer who can analyze, think, design, and
-  build beyond the obvious.
+  There’s a creative side to the story too. <strong>Graphic design, video editing,
+  and visual storytelling</strong> have shaped the way I think about the things
+  I build. As I move forward, I’m also exploring <strong>Machine Learning and
+  Cloud Computing</strong>, with one simple goal: becoming an engineer who can
+  analyze, think, design, and <strong>build beyond the obvious.</strong>
 </p>
 
 <p className="about__closing">
