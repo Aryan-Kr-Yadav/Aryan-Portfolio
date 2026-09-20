@@ -18,7 +18,7 @@ export default function Profile() {
         <span className="profile-card__pin" aria-hidden="true">📌</span>
       </div>
       <h3 className="profile-card__name">{profile.name}</h3>
-      <p className="profile-card__role">Aspiring Software Developer</p>
+      <p className="profile-card__role">Software Developer</p>
       <ul className="profile-card__details">
         <li><FaGraduationCap className="profile-card__icon"/><span>B.Tech CSE · ABESEC</span></li>
         <li><FaMapMarkerAlt  className="profile-card__icon"/><span>{profile.location}</span></li>
