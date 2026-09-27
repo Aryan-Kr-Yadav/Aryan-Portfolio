@@ -1,0 +1,343 @@
+.vinyl-player {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 82;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  pointer-events: auto;
+}
+
+.vinyl-card {
+  position: absolute;
+  right: 0;
+  bottom: 80px;
+  width: min(240px, calc(100vw - 32px));
+  opacity: 0;
+  transform: translateY(26px) scale(0.97);
+  transition: opacity 250ms ease, transform 350ms cubic-bezier(.22, 1, .36, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.vinyl-card.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.vinyl-card__inner {
+  position: relative;
+  background: rgba(245, 240, 230, 0.98);
+  border: 1px solid var(--divider);
+  box-shadow: 0 12px 18px rgba(27, 27, 27, 0.08);
+  padding: 14px 14px 12px;
+  border-radius: 2px;
+  color: var(--ink);
+}
+
+.vinyl-card__inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.25), transparent 38%);
+  pointer-events: none;
+}
+
+.vinyl-card__eyebrow {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 8px;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-rust);
+  font-weight: 700;
+}
+
+.vinyl-card__title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.vinyl-card__meta {
+  position: relative;
+  z-index: 1;
+  margin-top: 8px;
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.vinyl-card__progress-row {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  min-height: 26px;
+}
+
+.vinyl-card__time {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  min-width: 26px;
+}
+
+.vinyl-card__track-wrap {
+  position: relative;
+  height: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.vinyl-card__range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  margin: 0;
+}
+
+.vinyl-card__range::-webkit-slider-runnable-track {
+  height: 2px;
+  background: rgba(27, 27, 27, 0.18);
+  border-radius: 999px;
+}
+
+.vinyl-card__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-rust);
+  border: 1px solid rgba(27, 27, 27, 0.12);
+  margin-top: -4px;
+  box-shadow: 0 0 0 2px rgba(168, 70, 47, 0.12);
+}
+
+.vinyl-card__range::-moz-range-track {
+  height: 2px;
+  background: rgba(27, 27, 27, 0.18);
+  border: none;
+  border-radius: 999px;
+}
+
+.vinyl-card__range::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgba(27, 27, 27, 0.12);
+  border-radius: 50%;
+  background: var(--accent-rust);
+  box-shadow: 0 0 0 2px rgba(168, 70, 47, 0.12);
+}
+
+.vinyl-card__track-fill {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 2px;
+  transform: translateY(-50%);
+  background: var(--accent-rust);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.vinyl-card__toggle {
+  position: relative;
+  z-index: 1;
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-height: 28px;
+  padding: 0;
+  background: transparent;
+  color: var(--ink);
+  border: none;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.vinyl-card__toggle:hover,
+.vinyl-card__toggle:focus-visible {
+  color: var(--accent-rust);
+  outline: none;
+}
+
+.vinyl-card__error {
+  position: relative;
+  z-index: 1;
+  margin-top: 8px;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-rust);
+}
+
+.vinyl-button {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 180ms ease, filter 180ms ease;
+  box-shadow: 0 8px 16px rgba(27, 27, 27, 0.12);
+}
+
+.vinyl-button:hover,
+.vinyl-button:focus-visible {
+  transform: scale(1.04);
+  outline: none;
+}
+
+.vinyl-record {
+  position: relative;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(
+      circle at center,
+      #111111 0 2px,
+      #1C1C1C 3px,
+      #111111 4px,
+      #111111 6px,
+      #1C1C1C 7px,
+      #111111 8px
+    ),
+    radial-gradient(circle at 20% 18%, rgba(255,255,255,0.15), transparent 30%),
+    radial-gradient(circle at 70% 80%, rgba(255,255,255,0.06), transparent 35%),
+    #111111;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    inset 0 0 12px rgba(255,255,255,0.04),
+    inset -10px -10px 16px rgba(0,0,0,0.3),
+    0 0 0 1px rgba(20,20,20,0.65);
+  overflow: hidden;
+  transform: rotate(0deg);
+}
+
+.vinyl-record::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 38%, rgba(0,0,0,0.14) 100%);
+  mix-blend-mode: screen;
+}
+
+.vinyl-record.playing {
+  animation: vinylSpin 4s linear infinite;
+}
+
+.vinyl-record__shine {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(115deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.04) 32%, transparent 52%);
+  transform: translateX(-6px) rotate(16deg);
+  pointer-events: none;
+}
+
+.vinyl-record__label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 36%;
+  height: 36%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #F13933 0%, #E52521 36%, #C91F1B 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.16);
+  transform: translate(-50%, -50%);
+}
+
+.vinyl-record__hole {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #F1F0EB;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: inset 0 0 0 1px rgba(17,17,17,0.2);
+}
+
+@keyframes vinylSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .vinyl-player {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .vinyl-button,
+  .vinyl-record {
+    width: 54px;
+    height: 54px;
+  }
+
+  .vinyl-card {
+    bottom: 70px;
+    width: min(240px, calc(100vw - 32px));
+  }
+}
+
+@media (max-width: 420px) {
+  .vinyl-player {
+    right: 0;
+  }
+
+  .vinyl-card {
+    right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vinyl-button,
+  .vinyl-record,
+  .vinyl-card {
+    transition: none;
+    animation: none !important;
+  }
+
+  .vinyl-record.playing {
+    animation: none;
+  }
+}

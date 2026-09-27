@@ -1,9 +1,7 @@
-import { FaArrowUp, FaHeart } from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa';
 import './Footer.css';
 
 export default function Footer() {
-  const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-
   return (
     <footer className="footer">
       <div className="footer__rule footer__rule--thick"/>
@@ -16,10 +14,6 @@ export default function Footer() {
         <p className="footer__right">Keep coding. Keep growing.</p>
       </div>
       <div className="footer__rule"/>
-
-      <button className="footer__back-top" onClick={scrollTop} aria-label="Back to top">
-        <FaArrowUp/>
-      </button>
     </footer>
   );
 }

@@ -13,6 +13,7 @@ import Contact               from './components/Contact/Contact';
 import Footer                from './components/Footer/Footer';
 import MagnifyingGlass       from './components/MagnifyingGlass/MagnifyingGlass';
 import CustomCursor          from './components/CustomCursor/CustomCursor';
+import VinylPlayer           from './components/VinylPlayer/VinylPlayer';
 import useKonami             from './hooks/useKonami';
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -147,6 +148,8 @@ export default function App() {
         </main>
         <Footer />
       </div>
+
+      <VinylPlayer />
     </>
   );
 }
